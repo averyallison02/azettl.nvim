@@ -12,6 +12,7 @@ return {
     keys = {
         -- NOTE: If you change zettl_command, don't forget to update it here.
         { "<leader>zn", "<Cmd>Zettl new<CR>", desc = "New Note" },
+        { "<leader>zf", "<Cmd>Zettl find<CR>", desc = "Grep Notes"}
     },
 }
 ```
