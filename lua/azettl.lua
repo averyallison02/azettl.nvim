@@ -12,6 +12,11 @@ function setup_opts(opts)
 	if opts.notes_dir == nil then
 		opts.notes_dir = "~/notes"
 	end
+	if opts.finder == nil then
+		opts.finder = function()
+			Snacks.picker.grep({ dirs = { opts.notes_dir } })
+		end
+	end
 	if opts.titler == nil then
 		opts.titler = "date '+%Y%m%d%H%M%S.md'"
 	end
@@ -22,6 +27,8 @@ function setup_commands(opts)
 		local command = zettl_opts.fargs[1]
 		if command == "new" then
 			zettl_new(opts.notes_dir, opts.titler)
+		elseif command == "find" then
+			opts.finder()
 		end
 	end, { nargs = 1 })
 end
